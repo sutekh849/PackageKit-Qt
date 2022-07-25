@@ -24,7 +24,7 @@
 #include <QDBusPendingReply>
 #include <QVariantMap>
 
-#include <packagekitqt_global.h>
+#include "packagekitqt_global.h"
 
 namespace PackageKit {
 

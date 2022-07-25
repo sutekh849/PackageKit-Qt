@@ -24,7 +24,7 @@
 #include <QtGlobal>
 #include <QMetaType>
 
-#include <packagekitqt_global.h>
+#include "packagekitqt_global.h"
 
 namespace PackageKit {
 

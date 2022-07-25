@@ -27,7 +27,7 @@
 #include <QtDBus/QDBusObjectPath>
 #include <QtDBus/QDBusPendingReply>
 
-#include <packagekitqt_global.h>
+#include "packagekitqt_global.h"
 
 #include "bitfield.h"
 

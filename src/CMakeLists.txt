@@ -1,6 +1,6 @@
 # CMakeLists for PackageKit-Qt library
 
-find_package(Qt${QT_VERSION_MAJOR} 5.10 REQUIRED COMPONENTS Core DBus)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core DBus)
 
 set(packagekitqt_HEADERS
     Daemon
@@ -48,10 +48,10 @@ qt5_add_dbus_interface(packagekitqt_SRC ${PK_INTERFACE_XML} daemonproxy)
 qt5_add_dbus_interface(packagekitqt_SRC ${PK_TRANSACTION_INTERFACE_XML} transactionproxy)
 endif()
 
-add_library(packagekitqt${QT_VERSION_MAJOR} ${packagekitqt_SRC} ${packagekitqt_HEADERS} ${packagekitqt_HEADERS_PRIVATE})
+qt_add_library(packagekitqt${QT_VERSION_MAJOR} ${packagekitqt_SRC} ${packagekitqt_HEADERS} )
 set_target_properties(packagekitqt${QT_VERSION_MAJOR} PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${QPACKAGEKIT_API_LEVEL})
 
-target_link_libraries(packagekitqt${QT_VERSION_MAJOR} PUBLIC Qt${QT_VERSION_MAJOR}::DBus)
+target_link_libraries(packagekitqt${QT_VERSION_MAJOR} PUBLIC Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::DBus )
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/packagekitqt${QT_VERSION_MAJOR}.pc.in
   ${CMAKE_CURRENT_BINARY_DIR}/packagekitqt${QT_VERSION_MAJOR}.pc
